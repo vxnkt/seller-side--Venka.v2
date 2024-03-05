@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'profilepage.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +13,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: 
+      ThemeData.light(useMaterial3: true).copyWith(
+        appBarTheme: AppBarTheme(),
+        textTheme: GoogleFonts.robotoTextTheme(
+          Theme.of(context).textTheme,
         ),
       ),
-    );
+      home: profilepage(),
+      );
   }
 }
