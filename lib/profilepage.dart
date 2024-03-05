@@ -7,6 +7,8 @@ import 'dart:ui';
 
 import 'package:seller_side_uo/inventorypage.dart';
 
+import 'orders.dart';
+
 class profilepage extends StatefulWidget {
   const profilepage({super.key});
 
@@ -126,7 +128,10 @@ class _profilepageState extends State<profilepage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>  OrderPage()));
+
+                      },
                       child: SizedBox(
                         width: 150,
                         height: 140,
@@ -140,7 +145,7 @@ class _profilepageState extends State<profilepage> {
                               padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     "My Orders",
@@ -160,11 +165,11 @@ class _profilepageState extends State<profilepage> {
                     ),
                     InkWell(
                       onTap: () {
-                          Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => AnalyticsPage()),
                         );
-                        },
+                      },
                       child: SizedBox(
                         width: 150,
                         height: 140,
@@ -178,7 +183,7 @@ class _profilepageState extends State<profilepage> {
                               padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     "Analytics",
@@ -204,46 +209,46 @@ class _profilepageState extends State<profilepage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
+
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => InventoryPage()),
                         );
-                        },
-                        child: SizedBox(
-                          width: 150,
-                          height: 140,
-                          child: Card(
-                              color: Color.fromRGBO(216, 240, 253, 1),
-                              elevation: 8,
-                              child: Container(
-                                // width: 100,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                padding: EdgeInsets.all(16.0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "My Inventory",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Icon(
-                                      Icons.edit, // Use the desired icon
-                                      size: 40, // Adjust the size as needed
-                                      color: Colors.blue, // Customize the color
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
+                      },
+                      child: SizedBox(
+                        width: 150,
+                        height: 140,
+                        child: Card(
+                            color: Color.fromRGBO(216, 240, 253, 1),
+                            elevation: 8,
+                            child: Container(
+                              // width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "My Inventory",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Icon(
+                                    Icons.edit, // Use the desired icon
+                                    size: 40, // Adjust the size as needed
+                                    color: Colors.blue, // Customize the color
+                                  ),
+                                ],
+                              ),
+                            )),
                       ),
-                    
+                    ),
+
                     InkWell(
                       onTap: () {},
                       child: SizedBox(
@@ -259,7 +264,7 @@ class _profilepageState extends State<profilepage> {
                               padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     "Edit Profile",
