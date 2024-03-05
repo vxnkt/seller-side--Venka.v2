@@ -21,7 +21,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _stockController = TextEditingController();
-  String _imagePath = ''; // To store the selected image path
+  final List<String> _imagePaths = []; // To store the selected image path
 
   Future<void> _pickImage() async {
     final pickedFile =
@@ -29,10 +29,16 @@ class _CreateNewPageState extends State<CreateNewPage> {
 
     if (pickedFile != null) {
       setState(() {
-        _imagePath = pickedFile.path;
+        _imagePaths.add(pickedFile.path);
       });
     }
   }
+  void _removeImage(int index) {
+    setState(() {
+      _imagePaths.removeAt(index);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -143,14 +149,43 @@ class _CreateNewPageState extends State<CreateNewPage> {
                               SizedBox(height: 16.0), // Add some space
 
                               // Selected Image Preview
-                              _imagePath.isNotEmpty
-                                  ? Image.file(
-                                      File(_imagePath),
-                                      height: 100.0,
-                                      width: 100.0,
-                                      fit: BoxFit.cover,
+                                                            _imagePaths.isNotEmpty
+                                  ? Container(
+                                      height: 150.0,
+                                      child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: _imagePaths.length,
+                                        itemBuilder: (context, index) {
+                                          return LongPressDraggable(
+                                            feedback: Image.file(
+                                              File(_imagePaths[index]),
+                                              height: 100.0,
+                                              width: 100.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Image.file(
+                                                  File(_imagePaths[index]),
+                                                  height: 100.0,
+                                                  width: 100.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                                IconButton(
+                                                  icon: Icon(Icons.delete),
+                                                  onPressed: () =>
+                                                      _removeImage(index),
+                                                ),
+                                              ],
+                                            ),
+                                            onDragStarted: () =>
+                                                _removeImage(index),
+                                          );
+                                        },
+                                      ),
                                     )
                                   : Container(),
+
 
                               // Centered Submit Button with custom width and styling
                               Container(
