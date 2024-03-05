@@ -38,6 +38,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          surfaceTintColor: Colors.white,
           centerTitle: true,
           backgroundColor: Colors.white,
           title: const Text(

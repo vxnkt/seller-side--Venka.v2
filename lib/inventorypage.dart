@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:seller_side_uo/analyticspage.dart';
 
 import 'package:seller_side_uo/createnewpage.dart';
 import 'package:seller_side_uo/profilepage.dart';
@@ -18,6 +19,7 @@ class _InventoryPageState extends State<InventoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          surfaceTintColor: Colors.white,
           centerTitle: true,
           backgroundColor: Colors.white,
           
@@ -95,7 +97,11 @@ class _InventoryPageState extends State<InventoryPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AnalyticsPage()),);
+                    },
                     child: SizedBox(
                       width: 180,
                       height: 60,
