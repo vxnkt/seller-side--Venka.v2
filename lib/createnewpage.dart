@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 
 import 'dart:io';
 import 'dart:ui';
@@ -77,17 +77,17 @@ class _CreateNewPageState extends State<CreateNewPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Create New",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Card(
-                  color: Color.fromRGBO(216, 240, 253, 1),
+                  color: const Color.fromRGBO(216, 240, 253, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
@@ -97,7 +97,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                       child: Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Form(
                           key: _formKey,
                           child: Column(
@@ -105,7 +105,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                               TextFormField(
                                 controller: _nameController,
                                 decoration:
-                                    InputDecoration(labelText: 'Product Name'),
+                                    const InputDecoration(labelText: 'Product Name'),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter the product name';
@@ -113,10 +113,10 @@ class _CreateNewPageState extends State<CreateNewPage> {
                                   return null;
                                 },
                               ),
-                              SizedBox(height: 16),
+                              const SizedBox(height: 16),
                               TextFormField(
                                 controller: _priceController,
-                                decoration: InputDecoration(labelText: 'Price'),
+                                decoration: const InputDecoration(labelText: 'Price'),
                                 keyboardType: TextInputType.number,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -126,10 +126,10 @@ class _CreateNewPageState extends State<CreateNewPage> {
                                   return null;
                                 },
                               ),
-                              SizedBox(height: 16),
+                              const SizedBox(height: 16),
                               TextFormField(
                                 controller: _stockController,
-                                decoration: InputDecoration(labelText: 'Stock'),
+                                decoration: const InputDecoration(labelText: 'Stock'),
                                 keyboardType: TextInputType.number,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -139,18 +139,18 @@ class _CreateNewPageState extends State<CreateNewPage> {
                                   return null;
                                 },
                               ),
-                              SizedBox(height: 16),
+                              const SizedBox(height: 16),
                               // Add an ImagePicker or Image selection widget for the product photo
                               // Example: ImagePickerWidget(),
                               ElevatedButton(
                                 onPressed: _pickImage,
-                                child: Text('Pick Image'),
+                                child: const Text('Pick Image'),
                               ),
-                              SizedBox(height: 16.0), // Add some space
+                              const SizedBox(height: 16.0), // Add some space
 
                               // Selected Image Preview
                                                             _imagePaths.isNotEmpty
-                                  ? Container(
+                                  ? SizedBox(
                                       height: 150.0,
                                       child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
@@ -172,7 +172,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                                                   fit: BoxFit.cover,
                                                 ),
                                                 IconButton(
-                                                  icon: Icon(Icons.delete),
+                                                  icon: const Icon(Icons.delete),
                                                   onPressed: () =>
                                                       _removeImage(index),
                                                 ),
@@ -190,7 +190,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                               // Centered Submit Button with custom width and styling
                               Container(
                                 width: double.infinity, // Full width
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     vertical: 16.0), // Adjust margin as needed
                               )
                             ],
@@ -201,7 +201,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -211,9 +211,9 @@ class _CreateNewPageState extends State<CreateNewPage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                        Color.fromRGBO(10, 106, 157, 1), // Background color
+                        const Color.fromRGBO(10, 106, 157, 1), // Background color
                     foregroundColor: Colors.white, // Text color
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                         horizontal: 50.0,
                         vertical: 16.0), // Adjust padding as needed
                     shape: RoundedRectangleBorder(
@@ -221,7 +221,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                           5.0), // Adjust border radius as needed
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Submit',
                     style:
                         TextStyle(fontSize: 18.0), // Adjust font size as needed
