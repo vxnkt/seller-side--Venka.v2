@@ -10,9 +10,9 @@ final orders=[
     'quantity': 10
   },
   {
-    'name': 'Vitamin C',
-    'price': 100,
-    'quantity': 30
+    'name': 'Vitamin C Bottle',
+    'price': 200,
+    'quantity': 1
   },
   {
     'name': 'Cetirizine Syrup',
@@ -40,9 +40,9 @@ final orders=[
     'quantity': 10
   },
   {
-    'name': 'Vitamin C',
-    'price': 100,
-    'quantity': 30
+    'name': 'Vitamin C Bottle',
+    'price': 200,
+    'quantity': 1
   },
   {
     'name': 'Cetirizine Syrup',

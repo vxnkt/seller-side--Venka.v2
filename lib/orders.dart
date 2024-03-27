@@ -63,10 +63,10 @@ class _OrderPageState extends State<OrderPage>{
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                                 children: [
-                                  Text('Product\n${list[index]['name'].toString()}\n${list[index]['name'].toString()}\n${list[index]['name'].toString()}',
+                                  Text('Product\n${list[index]['name'].toString()}\n${list[index+1]['name'].toString()}\n${list[index+2]['name'].toString()}',
                                     overflow: TextOverflow.visible,),
                                   SizedBox(height: 5,),
-                                  Text('Quantity\n   ${list[index]['quantity']}\n   ${list[index]['quantity']}\n   ${list[index]['quantity']}'),
+                                  Text('Quantity\n     ${list[index]['quantity']}\n     ${list[index+1]['quantity']}\n     ${list[index+2]['quantity']}'),
 
                                 ],
                               ),
