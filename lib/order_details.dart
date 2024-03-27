@@ -1,7 +1,8 @@
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_map/flutter_map.dart';
+// import "package:google_maps_flutter/google_maps_flutter.dart";
+import 'package:latlong2/latlong.dart' as LatLng;
+
 import "constants.dart";
 
 class OrderDetails extends StatefulWidget {
@@ -12,208 +13,226 @@ class OrderDetails extends StatefulWidget {
 }
 
 class _OrderDetailsState extends State<OrderDetails> {
-  String orderName = '';
-  int quantity = 0;
-  double price = 0.0;
-  int index=0;
-  int amount=0;
-  final list=orders;
+  final list = orders;
+
+  Widget buildOrderListItem(Map<String, dynamic> order) {
+    return ListTile(
+      title: Text('Product: ${order['name']}'),
+      subtitle: Text('Quantity: ${order['quantity']}'),
+      // You can add more widgets here based on your requirements
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Order Details', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 31),),
         surfaceTintColor: Colors.white,
+        title: const Text('Order Details'),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.horizontal(left: Radius.elliptical(30, 30),right: Radius.elliptical(30, 30)),
-          color:Color.fromRGBO(216, 240, 253, 1) ,
-
-      ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              flex: 3,
-              child: SingleChildScrollView(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                      // color: Color.fromRGBO(216, 240, 253, 1)
-                  ),
-                  margin: EdgeInsets.all(9),
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Center(
-                      //   child: Text(
-                      //     'Order Details:',
-                      //     style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
-                      //   ),
-                      // ),
-                      Center(
-                        child: Text(
-                          'Order Number: 1232445',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
-                      ),
-                     Center(
-                       child: DataTable(
-                         columnSpacing: 10,
-                           columns: [
-                         DataColumn(label: Text('Product')),
-                         DataColumn(label: Text('Quantity')),
-                         DataColumn(label: Text('Each')),
-                         DataColumn(label: Text('Price')),
-                       ],
-                           rows: [
-                             DataRow(cells: [
-                               DataCell(Text('${list[index]['name'].toString()}')),
-                               DataCell(Text('${list[index]['quantity'].toString()}')),
-                               DataCell(Text('${list[index]['price'].toString()}')),
-                               DataCell(Text('250'))
-                             ]),
-                             DataRow(cells: [
-                               DataCell(Text('${list[index+1]['name'].toString()}')),
-                               DataCell(Text('${list[index+1]['quantity'].toString()}')),
-                               DataCell(Text('${list[index+1]['price'].toString()}')),
-                               DataCell(Text('750'))
-
-                             ]),
-                             DataRow(cells: [
-                               DataCell(Text('${list[index+2]['name'].toString()}')),
-                               DataCell(Text('${list[index+2]['quantity'].toString()}')),
-                               DataCell(Text('${list[index+2]['price'].toString()}')),
-                               DataCell(Text('200'))
-                             ]),
-
-                           ]),
-                     ),
-                    ],
-                  ),
-                ),
-              )
-            ),
-            Expanded(
-              flex: 5,
-                child: Container(
-                  //maps
-                  child:
-                  GoogleMap(
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(37.7749, -122.4194),
-                      zoom: 11.0,
-                    ),
-                    markers: {
-                      const Marker(
-                        markerId: MarkerId('Sydney'),
-                        position: LatLng(-33.86, 151.20),
-                      )
-                    },
-                  )
-                )
-            ),
-            Expanded(
-              flex: 2,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            flex: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  color: Colors.white
-                ),
-
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.grey[100]),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          width: 200,
-                          child: FloatingActionButton(
-                              heroTag: 'wiwww2d',
-                              onPressed: (){},
-                              elevation: 1,
-                              child: Text('Edit Order',
-                                style: TextStyle(color: Colors.white
-                                    ,fontWeight: FontWeight.bold),),
-                              backgroundColor: Colors.blue//Color.fromRGBO(216, 240, 253, 1) ,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          width: 200,
-                          child: FloatingActionButton(
-                            heroTag: 'wiwwwd',
-
-                            onPressed: (){},
-                            elevation: 1,
-
-                            backgroundColor: Colors.blue,//Color.fromRGBO(216, 240, 253, 1) ,
-                            child: Text('XYZ',
-                                style: TextStyle(color: Colors.white
-                                    ,fontWeight: FontWeight.bold)),
-
-                          ),
-                        ),
-                      ],
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          width: 200,
-                          child: FloatingActionButton(
-                            heroTag: 'wiwd',
-                              onPressed: (){},
-                              elevation: 1,
-                              child: Text('Confirm',
-                                style: TextStyle(color: Colors.white
-                                    ,fontWeight: FontWeight.bold),),
-                              backgroundColor: Colors.lightGreen//Color.fromRGBO(216, 240, 253, 1) ,
-                          ),
+                    Text(
+                      'Order No: ',
+                      style: TextStyle(
+                          color: Colors.grey[800],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    ),
+                    Flexible(
+                      child: FlutterMap(
+                        options: const MapOptions(
+                          initialCenter: LatLng.LatLng(13.3524, 74.7868),
+                          initialZoom: 13.0,
                         ),
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          width: 200,
-                          child: FloatingActionButton(
-                            heroTag: '222',
-                            onPressed: (){},
-                            elevation: 1,
-
-                            backgroundColor: Colors.redAccent,//Color.fromRGBO(216, 240, 253, 1) ,
-                            child: Text('Cancel',
-                                style: TextStyle(color: Colors.white
-                                    ,fontWeight: FontWeight.bold)),
-
+                        children: [
+                          TileLayer(
+                            urlTemplate:
+                                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            subdomains: const ['a', 'b', 'c'],
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+  flex: 3,
+  child: SingleChildScrollView(
+    child: DataTable(
+      columns: [
+        DataColumn(label: Text('Order')),
+        DataColumn(label: Text('Product Name')),
+        DataColumn(label: Text('Quantity')),
+      ],
+      rows: orders.map((order) {
+        return DataRow(cells: [
+          DataCell(Text('1')), // Replace '1' with your actual order number
+          DataCell(Text(order['name'].toString())),
+          DataCell(Text(order['quantity'].toString())),
+        ]);
+      }).toList(),
+    ),
+  ),
+),
+          const SizedBox(
+            height: 5,
+          ),
+          Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: 180,
+                        height: 60,
+                        child: Card(
+                            color: const Color.fromARGB(255, 158, 240, 141),
+                            elevation: 8,
+                            child: Container(
+                              // width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Confirm",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ),
+                    // SizedBox(width: 5,),
+                    InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: 180,
+                        height: 60,
+                        child: Card(
+                            color: const Color.fromARGB(255, 255, 98, 0),
+                            elevation: 8,
+                            child: Container(
+                              // width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Cancel",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: 180,
+                        height: 60,
+                        child: Card(
+                            color: const Color.fromARGB(255, 239, 241, 243),
+                            elevation: 8,
+                            child: Container(
+                              // width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Create New",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: 180,
+                        height: 60,
+                        child: Card(
+                            color: const Color.fromARGB(255, 239, 241, 243),
+                            elevation: 8,
+                            child: Container(
+                              // width: 100,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Create New",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-// Text('${list[0]['name'].toString()}\n${list[0]['name'].toString()}\n${list[0]['name'].toString()}',
-//                 overflow: TextOverflow.visible,),
-//               Text('${list[0]['quantity']}\n${list[0]['quantity']}\n${list[0]['quantity']}'),

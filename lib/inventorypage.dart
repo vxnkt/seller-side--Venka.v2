@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 
 
 import 'package:flutter/material.dart';
@@ -54,12 +54,12 @@ class _InventoryPageState extends State<InventoryPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "My Inventory",
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -69,20 +69,20 @@ class _InventoryPageState extends State<InventoryPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CreateNewPage()),);
+                        MaterialPageRoute(builder: (context) => const CreateNewPage()),);
                     },
                     child: SizedBox(
                       width: 180,
                       height: 60,
                       child: Card(
-                          color: Color.fromARGB(255, 239, 241, 243),
+                          color: const Color.fromARGB(255, 239, 241, 243),
                           elevation: 8,
                           child: Container(
                             // width: 100,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20)),
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
@@ -100,20 +100,20 @@ class _InventoryPageState extends State<InventoryPage> {
                     onTap: () {
                        Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AnalyticsPage()),);
+                        MaterialPageRoute(builder: (context) => const AnalyticsPage()),);
                     },
                     child: SizedBox(
                       width: 180,
                       height: 60,
                       child: Card(
-                          color: Color.fromRGBO(216, 240, 253, 1),
+                          color: const Color.fromRGBO(216, 240, 253, 1),
                           elevation: 8,
                           child: Container(
                             // width: 100,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20)),
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
@@ -129,11 +129,11 @@ class _InventoryPageState extends State<InventoryPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: Text(
                   "Recently Added",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -155,7 +155,7 @@ class _InventoryPageState extends State<InventoryPage> {
                           child: Container(
                             // height: 120,
                             width: 150, // Adjust the width based on your design
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -166,19 +166,19 @@ class _InventoryPageState extends State<InventoryPage> {
                                   width: 65,
                                   fit: BoxFit.cover,
                                 ),
-                                SizedBox(width: 18),
+                                const SizedBox(width: 18),
                                 // Product details (replace with actual product details)
                                 Column(
                                   // crossAxisAlignment: CrossAxisAlignment.censter,
                                   children: [
                                     Text('Product abcdefghij ${index + 1}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold)),
                                     // SizedBox(height: 4,),
                                     // Text('Price: \$XX.XX'),
-                                    SizedBox(height: 4,),
-                                    Text('Stock: XX units', style: TextStyle(fontSize: 18),),
+                                    const SizedBox(height: 4,),
+                                    const Text('Stock: XX units', style: TextStyle(fontSize: 18),),
                                   ],
                                 ),
                               ],
