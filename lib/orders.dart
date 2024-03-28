@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seller_side_uo/profilepage.dart';
+import 'analyticspage.dart';
 import 'order_details.dart';
 
 void main() {
@@ -42,10 +44,13 @@ class _OrderPageState extends State<OrderPage> {
     {'name': 'Product V', 'quantity': 5},
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
         title: const Text(
           'My Orders',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
@@ -105,6 +110,7 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
     );
+
   }
 
   Widget buildOrderListItem(Map<String, dynamic> order, int index) {

@@ -16,13 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: 
-      ThemeData.light(useMaterial3: true).copyWith(
-        appBarTheme: const AppBarTheme(),
-        textTheme: GoogleFonts.robotoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
+      theme: ThemeData(canvasColor:Colors.white,textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme,),splashColor: Colors.transparent, highlightColor: Colors.transparent, hoverColor: Colors.transparent),
       home: SplashScreen(),
       );
   }

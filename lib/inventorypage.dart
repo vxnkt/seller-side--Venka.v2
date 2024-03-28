@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 
 import 'package:seller_side_uo/createnewpage.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'package:seller_side_uo/profilepage.dart';
 
 class InventoryPage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _InventoryPageState extends State<InventoryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const profilepage()),
+                  MaterialPageRoute(builder: (context) => HomePage(i: 0)),
                 );
               },
               icon: const Icon(
@@ -193,31 +194,7 @@ class _InventoryPageState extends State<InventoryPage> {
         ),
       ),
 
-    bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.store),
-            label: 'Store',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Emergency',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.verified_user),
-            label: 'Account',
-          ),
-        ],
-      ),
+
     );
   }
 }
