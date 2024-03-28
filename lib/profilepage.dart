@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 import 'package:seller_side_uo/constants.dart';
+import 'package:seller_side_uo/extrainfo.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'dart:ui';
 
 import 'package:seller_side_uo/inventorypage.dart';
@@ -13,7 +15,7 @@ import 'package:seller_side_uo/inventorypage.dart';
 import 'orders.dart';
 
 
-class profilepage extends StatefulWidget {
+class profilepage extends StatefulWidget  {
    profilepage({super.key});
 
   @override
@@ -27,6 +29,7 @@ class _profilepageState extends State<profilepage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
       automaticallyImplyLeading: false, 
       toolbarHeight: 85,
@@ -55,6 +58,8 @@ class _profilepageState extends State<profilepage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Divider(),
+                SizedBox(height: 10),
                 const Text(
                   "  My Account",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
@@ -66,7 +71,7 @@ class _profilepageState extends State<profilepage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  elevation: 8,
+                  elevation: 5,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: const Padding(
@@ -127,7 +132,9 @@ class _profilepageState extends State<profilepage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 50,),
+                const SizedBox(height: 10,),
+                Divider(),
+                const SizedBox(height: 30,),
 
                 Stack(
                     clipBehavior: Clip.hardEdge,
@@ -144,10 +151,11 @@ class _profilepageState extends State<profilepage> {
                           physics: NeverScrollableScrollPhysics(), // Disable grid scrolling
                           crossAxisCount: 2,
                           children:  [
-                            CustomButton(icon: Icons.shopping_cart, text: 'My Orders',onTap:(){print("hello"); Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderPage()));}),
-                            CustomButton(icon: Icons.analytics, text: 'Analytics',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> AnalyticsPage()));}),
+                            CustomButton(icon: Icons.shopping_cart, text: 'My Orders',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 2,)));
+                            }),
+                            CustomButton(icon: Icons.analytics, text: 'Analytics',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 1)));}),
                             CustomButton(icon: Icons.edit, text: 'My Inventory',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> InventoryPage()));}),
-                            CustomButton(icon: Icons.person, text: 'Edit Profile',onTap: (){},),
+                            CustomButton(icon: Icons.person, text: 'Edit Profile',onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>ExtraInfo()));},),
                           ],
                         ),
                       ),

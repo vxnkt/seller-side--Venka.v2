@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 
 import 'package:seller_side_uo/createnewpage.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'package:seller_side_uo/profilepage.dart';
 
 class InventoryPage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _InventoryPageState extends State<InventoryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profilepage()),
+                  MaterialPageRoute(builder: (context) => HomePage(i: 0)),
                 );
               },
               icon: const Icon(

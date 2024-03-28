@@ -6,26 +6,36 @@ import 'package:seller_side_uo/profilepage.dart';
 import 'analyticspage.dart';
 import 'orders.dart';
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final int i;
 
+
+  const HomePage({required this.i,super.key});
   @override
   State<HomePage> createState() => _HomePage();
+
 }
 
 class _HomePage extends State<HomePage> {
-  int _selectedIndex = 0;
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    // Accessing widget properties in initState
+    selectedIndex = widget.i;
+  }
 
   final List<Widget> _pages = [
     profilepage(),
-    AnalyticsPage(),
-    OrderPage(),
-    AccountPage(),
-    ExtraInfo()
+    const AnalyticsPage(),
+    const OrderPage(),
+    const AccountPage(),
+    const ExtraInfo()
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -33,17 +43,17 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: _pages[_selectedIndex],
+      body: _pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         iconSize: 24,
         onTap: _onItemTapped,
-        currentIndex: _selectedIndex,
+        currentIndex: selectedIndex,
         backgroundColor: Colors.white,
-        selectedItemColor: Color.fromRGBO(25, 118, 210, 1),
+        selectedItemColor: const Color.fromRGBO(25, 118, 210, 1),
         unselectedItemColor: Colors.grey,
         showSelectedLabels: true,
-        selectedIconTheme: IconThemeData(
+        selectedIconTheme:const  IconThemeData(
           size: 40,
         ),
         items: const <BottomNavigationBarItem>[
@@ -64,10 +74,9 @@ class _HomePage extends State<HomePage> {
             label: 'Account',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list_outlined),
-            label: 'Help',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
-
         ],
       ),
     );
