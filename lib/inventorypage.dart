@@ -40,7 +40,7 @@ class _InventoryPageState extends State<InventoryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const profilepage()),
+                  MaterialPageRoute(builder: (context) => profilepage()),
                 );
               },
               icon: const Icon(
@@ -193,31 +193,7 @@ class _InventoryPageState extends State<InventoryPage> {
         ),
       ),
 
-    bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.store),
-            label: 'Store',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Emergency',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.verified_user),
-            label: 'Account',
-          ),
-        ],
-      ),
+
     );
   }
 }

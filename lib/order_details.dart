@@ -2,8 +2,11 @@ import "package:flutter/material.dart";
 import 'package:flutter_map/flutter_map.dart';
 // import "package:google_maps_flutter/google_maps_flutter.dart";
 import 'package:latlong2/latlong.dart' as LatLng;
+import 'package:seller_side_uo/profilepage.dart';
 
+import 'analyticspage.dart';
 import "constants.dart";
+import 'orders.dart';
 
 class OrderDetails extends StatefulWidget {
   const OrderDetails({super.key});
@@ -232,6 +235,7 @@ class _OrderDetailsState extends State<OrderDetails> {
           ),
         ],
       ),
+
     );
   }
 }

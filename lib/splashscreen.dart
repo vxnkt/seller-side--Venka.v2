@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'profilepage.dart'; // Make sure to have a ProfilePage.dart file with a ProfilePage widget
 
 
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       Duration(seconds: 2),
-      () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => profilepage())),
+      () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => HomePage())),
     );
   }
 
@@ -26,17 +27,18 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF076585), Color(0xFF54E346)], // Use appropriate gradient colors
-          ),
+          // gradient: LinearGradient(
+          //   begin: Alignment.centerLeft,
+          //   end: Alignment.centerRight,
+          //   colors: [Color.fromRGBO(121, 9, 116, 1), Color.fromRGBO(0, 212, 255, 1)], // Use appropriate gradient colors
+          // ),
+          color: Color.fromRGBO(25, 118, 210, 1),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/images/DronAid logo .jpg',height: 200,width: 200,), // Add your logo asset reference
+              Image.asset('assets/images/logo_splash.png',height: 200,width: 200,), // Add your logo asset reference
               SizedBox(height: 20),
               Text(
                 'One flight saves life.',

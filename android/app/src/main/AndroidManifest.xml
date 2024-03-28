@@ -2,9 +2,8 @@
     <application
         android:label="seller_side_uo"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR-KEY-HERE"/>
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

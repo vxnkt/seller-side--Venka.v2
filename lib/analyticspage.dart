@@ -12,6 +12,7 @@ class AnalyticsPage extends StatefulWidget {
 
 class _AnalyticsPageState extends State<AnalyticsPage> {
   String selectedOption = 'This Year';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +38,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const profilepage()),
+                  MaterialPageRoute(builder: (context) => profilepage()),
                 );
               },
               icon: const Icon(
@@ -238,8 +239,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                 ),
         ],
             ),
-      )
-
+      ),
     );
   }
 }

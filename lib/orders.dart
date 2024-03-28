@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seller_side_uo/profilepage.dart';
+import 'analyticspage.dart';
 import 'order_details.dart';
 
 void main() {
@@ -41,6 +43,7 @@ class _OrderPageState extends State<OrderPage> {
     {'name': 'Product W', 'quantity': 4},
     {'name': 'Product V', 'quantity': 5},
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +108,7 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
     );
+
   }
 
   Widget buildOrderListItem(Map<String, dynamic> order, int index) {
