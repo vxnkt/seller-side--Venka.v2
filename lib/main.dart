@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seller_side_uo/splashscreen.dart';
 import 'profilepage.dart';
 
 void main() {
@@ -15,14 +16,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: 
-      ThemeData.light(useMaterial3: true).copyWith(
-        appBarTheme: AppBarTheme(),
-        textTheme: GoogleFonts.robotoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      home: profilepage(),
+      theme: ThemeData(canvasColor:Colors.white,textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme,),splashColor: Colors.transparent, highlightColor: Colors.transparent, hoverColor: Colors.transparent),
+      home: SplashScreen(),
       );
   }
 }
