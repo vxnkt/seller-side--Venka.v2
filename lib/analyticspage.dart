@@ -50,10 +50,6 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const Divider(),
-            ),
             const SizedBox(height: 6,),
             Padding(
               padding: const EdgeInsets.fromLTRB(10,0,10,0),

@@ -66,74 +66,78 @@ class _profilepageState extends State<profilepage> {
                   textAlign: TextAlign.start,
                 ),
 
-                Card(
-                  color: Color.fromRGBO(25, 118, 210, 1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  elevation: 5,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Column(children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Center(
-                                    child: Material(
-                                      elevation: 10,
-                                      shape: CircleBorder(),
-                                      child: CircleAvatar(
-                                        backgroundImage: AssetImage(
-                                          "assets/images/download.png",
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 3)));
+                  },
+                  child: Card(
+
+                    color: const Color.fromRGBO(18, 84, 150, 1.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    elevation: 5,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Column(children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Center(
+                                      child: Material(
+                                        elevation: 10,
+                                        shape: CircleBorder(),
+                                        child: CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                            "assets/images/download.png",
+                                          ),
+                                          radius: 40,
                                         ),
-                                        radius: 40,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "John Wick",
-                          style: TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
-                        Text(
-                          'VDK303',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
-                        Text(
-                          'johnwick@gmail.com',
-                          style: TextStyle(
-                            fontSize: 20,
-                              color: Colors.white
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                      ]),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "John Wick",
+                            style: TextStyle(
+                                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          Text(
+                            'VDK303',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          Text(
+                            'johnwick@gmail.com',
+                            style: TextStyle(
+                              fontSize: 20,
+                                color: Colors.white
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                        ]),
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 10,),
-                Divider(),
                 const SizedBox(height: 30,),
 
                 Stack(
