@@ -41,7 +41,7 @@ class _InventoryPageState extends State<InventoryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage(i: 0)),
+                  MaterialPageRoute(builder: (context) => HomePage(i: 1)),
                 );
               },
               icon: const Icon(
@@ -161,13 +161,11 @@ class _InventoryPageState extends State<InventoryPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // Product photo (You can replace the Image.network with your own image widget)
-                                Image.network(
-                                  'https://placehold.it/100x100', // Replace with the actual image URL
-                                  height: 65,
-                                  width: 65,
-                                  fit: BoxFit.cover,
-                                ),
-                                const SizedBox(width: 18),
+                                Image.asset(
+                                  'assets/images/orders.png',
+                                  height: 50,
+                                  width: 50,
+                                ),                                const SizedBox(width: 18),
                                 // Product details (replace with actual product details)
                                 Column(
                                   // crossAxisAlignment: CrossAxisAlignment.censter,
