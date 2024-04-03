@@ -168,7 +168,7 @@ class _OrderPageState extends State<OrderPage> {
                     overflow: TextOverflow.visible,
                     style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                 ),
@@ -177,7 +177,7 @@ class _OrderPageState extends State<OrderPage> {
                   '   ${order['quantity']}\n   ${order['quantity']}\n   ${order['quantity']}',
                   style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
 
                 ),

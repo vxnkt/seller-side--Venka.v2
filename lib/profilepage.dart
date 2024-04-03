@@ -26,9 +26,80 @@ class profilepage extends StatefulWidget  {
 }
 
 class _profilepageState extends State<profilepage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Container(
+               decoration: BoxDecoration(
+                 image: DecorationImage(
+                   image: AssetImage('assets/images/logo_neww.png'),
+                 )
+               ),
+                 height: 100,
+                           ),
+             ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Your Profile'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.analytics_outlined),
+              title: const Text('Analytics'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.inventory),
+              title: const Text('Inventory'),
+              onTap: () {
+              },
+            ),
+
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.help),
+              title: const Text('Help'),
+              onTap: () {
+                // Handle your onTap here.
+                print('Help tapped');
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
 
@@ -48,7 +119,12 @@ class _profilepageState extends State<profilepage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                        Icon(Icons.menu_rounded,color: Colors.white,size: 25,),
+                        IconButton
+                          (
+                          onPressed: (){
+                            _scaffoldKey.currentState!.openDrawer();
+                          },
+                            icon: Icon(Icons.menu_rounded,color: Colors.white,size: 25,)),
                     Row(
                       children: [
                         Icon(Icons.notifications, size: 25,color: Colors.white,),

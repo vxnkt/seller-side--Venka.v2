@@ -119,7 +119,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             ],
                             rows: orders.map((order) {
                             return DataRow(cells: [
-                            DataCell(Text('1')), // Replace '1' with your actual order number
+                            DataCell(Text('1',)), // Replace '1' with your actual order number
                             DataCell(Text(order['name'].toString())),
                             DataCell(Text(order['quantity'].toString())),
                             ]);
@@ -154,55 +154,74 @@ class _OrderDetailsState extends State<OrderDetails> {
 
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 73,
-                    child: ElevatedButton(
-                      onPressed: (){},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:   Color.fromRGBO(57, 161, 18, 1.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                      ),
-                      child: const Text(
-                        "Confirm Order",
-                        style: TextStyle(
+            child: Container(
+              decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+        color: Colors.white,
+        boxShadow: [BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 3,
+          blurRadius: 10,
 
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+        )
+        ]
+    ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: 73,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:   Color.fromRGBO(57, 161, 18, 1.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: const Text(
+                            "Confirm Order",
+                            style: TextStyle(
+
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    height: 73,
-                    child: ElevatedButton(
-                      onPressed: (){},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                      ),
-                      child: const Text(
-                        "Cancel",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: 73,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: const Text(
+                            "Cancel",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
             ,
           ),

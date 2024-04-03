@@ -19,6 +19,7 @@ class _InventoryPageState extends State<InventoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           surfaceTintColor: Colors.white,
           centerTitle: true,
