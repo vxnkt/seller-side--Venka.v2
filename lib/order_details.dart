@@ -82,14 +82,14 @@ class _OrderDetailsState extends State<OrderDetails> {
   flex: 3,
   child: SingleChildScrollView(
     child: DataTable(
-      columns: [
+      columns: const [
         DataColumn(label: Text('Order')),
         DataColumn(label: Text('Product Name')),
         DataColumn(label: Text('Quantity')),
       ],
       rows: orders.map((order) {
         return DataRow(cells: [
-          DataCell(Text('1')), // Replace '1' with your actual order number
+          const DataCell(Text('1')), // Replace '1' with your actual order number
           DataCell(Text(order['name'].toString())),
           DataCell(Text(order['quantity'].toString())),
         ]);

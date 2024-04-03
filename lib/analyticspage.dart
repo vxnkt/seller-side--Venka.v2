@@ -36,7 +36,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage(i: 0)),
+                  MaterialPageRoute(builder: (context) => const HomePage(i: 0)),
                 );
               },
               icon: const Icon(
@@ -62,7 +62,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                   ),
             Container(
               padding: const EdgeInsets.fromLTRB(5,0,5,0),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               //borderRadius: BorderRadius.circular(8),
               //border: Border.all(color: Colors.grey),
             ),
@@ -95,7 +95,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                           width: MediaQuery.of(context).size.width,
                           height: 200,
                           child: Card(
-                              color: Color.fromRGBO(25, 118, 210, 1),
+                              color: const Color.fromRGBO(25, 118, 210, 1),
                               elevation: 8,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -105,7 +105,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20)),
                                     padding: const EdgeInsets.all(16.0),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
                                       children: [
                                         Icon(Icons.auto_graph_sharp, size: 60.0, color: Colors.white,), // Adjust icon size as needed
@@ -128,13 +128,13 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                           width: MediaQuery.of(context).size.width,
                           height: 200,
                           child: Card(
-                            color: Color.fromRGBO(12, 93, 171, 1.0),
+                            color: const Color.fromRGBO(12, 93, 171, 1.0),
                               elevation: 8,
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20)),
                                 padding: const EdgeInsets.all(16.0),
-                                child: Column(
+                                child: const Column(
                                     mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
                                     children: [
                                       Icon(Icons.work_history, size: 60.0, color: Colors.white,), // Adjust icon size as needed
@@ -150,14 +150,14 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => InventoryPage()),
+                            MaterialPageRoute(builder: (context) => const InventoryPage()),
                           );
                         },
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           height: 200,
                           child: Card(
-                              color: Color.fromRGBO(12, 65, 119, 1.0),
+                              color: const Color.fromRGBO(12, 65, 119, 1.0),
                               elevation: 8,
                               child: Container(
                                 // width: 100,
@@ -168,7 +168,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: const EdgeInsets.all(16.0),
-                                  child: Column(
+                                  child: const Column(
                                     mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
                                     children: [
                                       Icon(Icons.supervised_user_circle, size: 60.0, color: Colors.white

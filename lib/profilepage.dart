@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 import 'package:seller_side_uo/constants.dart';
-import 'package:seller_side_uo/extrainfo.dart';
+
 import 'package:seller_side_uo/homepage.dart';
 import 'dart:ui';
 
@@ -159,7 +159,7 @@ class _profilepageState extends State<profilepage> {
                             }),
                             CustomButton(icon: Icons.analytics, text: 'Analytics',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 1)));}),
                             CustomButton(icon: Icons.edit, text: 'My Inventory',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> InventoryPage()));}),
-                            CustomButton(icon: Icons.person, text: 'Edit Profile',onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>ExtraInfo()));},),
+                            
                           ],
                         ),
                       ),
