@@ -36,7 +36,9 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               onPressed: () {
                 Navigator.push(
                   context,
+
                   MaterialPageRoute(builder: (context) => HomePage(i: 1)),
+
                 );
               },
               icon: const Icon(
@@ -62,7 +64,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                   ),
             Container(
               padding: const EdgeInsets.fromLTRB(5,0,5,0),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               //borderRadius: BorderRadius.circular(8),
               //border: Border.all(color: Colors.grey),
             ),
@@ -86,6 +88,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               ),
             ),
             const SizedBox(height: 20,),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -166,11 +169,12 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: const EdgeInsets.all(16.0),
+
                                   child: Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20)),
                                     padding: const EdgeInsets.all(16.0),
-                                    child: Column(
+                                    child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
                                       children: [
                                         Icon(Icons.supervised_user_circle, size: 60.0, color: Colors.white
@@ -180,12 +184,14 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                                       ],
                                     ),
                                   ),
+
                                 )),
                           ),
                         ),
                       ],
                     ),
             ),
+
                   SizedBox(
                     width: MediaQuery.of(context).size.width*0.48,
                     height: 25,

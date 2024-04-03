@@ -12,10 +12,12 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.white,
       appBar: AppBar(
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
+
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -93,6 +95,7 @@ class _AccountPageState extends State<AccountPage> {
                         print('Personal Data tapped');
                       },
                     ),
+
 
 
                     const Padding(
@@ -180,6 +183,7 @@ class _AccountPageState extends State<AccountPage> {
                       },
                     ),
                   ],
+
                 ),
               ),
             ],

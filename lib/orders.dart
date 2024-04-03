@@ -151,14 +151,14 @@ class _OrderPageState extends State<OrderPage> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                Icon(Icons.arrow_forward_ios,
+                const Icon(Icons.arrow_forward_ios,
                 color: Colors.white,)
               ],
             ),
 
             subtitle: Column(
               children:[
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -183,7 +183,7 @@ class _OrderPageState extends State<OrderPage> {
                 ),
               ],
             ),
-                SizedBox(height: 5,)
+                const SizedBox(height: 5,)
           ]
           )
           ),

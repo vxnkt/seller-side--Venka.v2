@@ -42,7 +42,9 @@ class _InventoryPageState extends State<InventoryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
+
                   MaterialPageRoute(builder: (context) => HomePage(i: 1)),
+
                 );
               },
               icon: const Icon(

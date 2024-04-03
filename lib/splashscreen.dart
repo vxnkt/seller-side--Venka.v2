@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:seller_side_uo/homepage.dart';
+import 'package:seller_side_uo/login_page.dart';
 import 'profilepage.dart'; // Make sure to have a ProfilePage.dart file with a ProfilePage widget
 
 
@@ -18,7 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       Duration(seconds: 2),
-      () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => HomePage(i: 1))),
+
+      () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => login_page())),
+
     );
   }
 

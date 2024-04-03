@@ -153,6 +153,7 @@ class _OrderDetailsState extends State<OrderDetails> {
           // style: TextStyle(fontSize: 20),),
 
           Expanded(
+
             flex: 1,
             child: Container(
               decoration: BoxDecoration(
@@ -165,6 +166,7 @@ class _OrderDetailsState extends State<OrderDetails> {
 
         )
         ]
+
     ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seller_side_uo/accountpage.dart';
-import 'package:seller_side_uo/extrainfo.dart';
-import 'package:seller_side_uo/order_details.dart';
+
 import 'package:seller_side_uo/profilepage.dart';
 
 import 'analyticspage.dart';
@@ -30,6 +29,8 @@ class _HomePage extends State<HomePage> {
     const OrderPage(),
     profilepage(),
     const AccountPage(),
+
+
   ];
 
   void _onItemTapped(int index) {

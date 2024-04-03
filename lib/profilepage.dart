@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 import 'package:seller_side_uo/accountpage.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 import 'package:seller_side_uo/constants.dart';
-import 'package:seller_side_uo/extrainfo.dart';
+
 import 'package:seller_side_uo/homepage.dart';
 import 'dart:ui';
 
@@ -244,6 +244,7 @@ class _profilepageState extends State<profilepage> {
                           color: Colors.white,
                         ),
                       ),
+
                       height: 150,
                       width: MediaQuery.of(context).size.width/2-40,
                     ),
@@ -272,6 +273,7 @@ class _profilepageState extends State<profilepage> {
                           ),
                           surfaceTintColor: Colors.white,
                           color: Colors.white,
+
                         ),
                       ),
                       height: 150,
