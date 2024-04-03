@@ -2,8 +2,11 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:seller_side_uo/accountpage.dart';
 import 'package:seller_side_uo/analyticspage.dart';
 import 'package:seller_side_uo/constants.dart';
 import 'package:seller_side_uo/extrainfo.dart';
@@ -23,210 +26,286 @@ class profilepage extends StatefulWidget  {
 }
 
 class _profilepageState extends State<profilepage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        surfaceTintColor: Colors.white,
+      key: _scaffoldKey,
+      drawer: Drawer(
         backgroundColor: Colors.white,
-      automaticallyImplyLeading: false, 
-      toolbarHeight: 85,
-      flexibleSpace: Center(
-        child: Column(
+        surfaceTintColor: Colors.white,
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
-            SizedBox(height: 30,),
-            Image.asset(
-              'assets/images/logo_neww.png',
-             width: 319, // Adjust the width as needed
-              height: 75, // Adjust the height as needed
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Container(
+               decoration: BoxDecoration(
+                 image: DecorationImage(
+                   image: AssetImage('assets/images/logo_neww.png'),
+                 )
+               ),
+                 height: 100,
+                           ),
+             ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Your Profile'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.analytics_outlined),
+              title: const Text('Analytics'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.inventory),
+              title: const Text('Inventory'),
+              onTap: () {
+              },
+            ),
+
+            const Padding(
+              padding: EdgeInsets.fromLTRB(15,0,15,0),
+              child: Divider(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.help),
+              title: const Text('Help'),
+              onTap: () {
+                // Handle your onTap here.
+                print('Help tapped');
+              },
             ),
           ],
         ),
       ),
-      actions: [
-      ],
-    ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: SizedBox(
-          width: double.infinity,
-          // height: 400,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      backgroundColor: Colors.white,
+        resizeToAvoidBottomInset: false,
+
+        body: Container(
+        decoration: const  BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/Untitled design.png'),
+            fit: BoxFit.cover
+          )
+        ),
+        child:  Padding(
+          padding: const EdgeInsets.fromLTRB(30,30,30,20),
+          child: Stack(
+            children:[ Column(
               children: [
-                Divider(),
-                SizedBox(height: 10),
-                const Text(
-                  "  My Account",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.start,
+                 SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                        IconButton
+                          (
+                          onPressed: (){
+                            _scaffoldKey.currentState!.openDrawer();
+                          },
+                            icon: Icon(Icons.menu_rounded,color: Colors.white,size: 25,)),
+                    Row(
+                      children: [
+                        Icon(Icons.notifications, size: 25,color: Colors.white,),
+                        SizedBox(width: 10,),
+                        GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> AccountPage()));
+                            },
+                            child: Icon(Icons.person, size: 25,color: Colors.white,))
+                      ],
+                    )
+                  ]
                 ),
-
-                GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 3)));
-                  },
-                  child: Card(
-
-                    color: const Color.fromRGBO(18, 84, 150, 1.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                SizedBox(height: 20,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Hello John", style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontFamily: 'Raleway',
+                        ),),
+                      ],
                     ),
-                    elevation: 5,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: const Padding(
-                        padding: EdgeInsets.all(12.0),
-                        child: Column(children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Center(
-                                      child: Material(
-                                        elevation: 10,
-                                        shape: CircleBorder(),
-                                        child: CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                            "assets/images/download.png",
-                                          ),
-                                          radius: 40,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "John Wick",
-                            style: TextStyle(
-                                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
-                          ),
-                          Text(
-                            'VDK303',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-                          ),
-                          Text(
-                            'johnwick@gmail.com',
-                            style: TextStyle(
-                              fontSize: 20,
-                                color: Colors.white
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                        ]),
-                      ),
-                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(40.0)
                   ),
-                ),
-                const SizedBox(height: 30,),
-
-                Stack(
-                    clipBehavior: Clip.hardEdge,
+                  child: Row(
                     children: [
-                      Positioned.fill(child:
-                      CustomPaint(
-                        painter: CrossPainter(),
-                      )
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.grey[600],
+                        ),
                       ),
-                      SizedBox(
-                        height: 300,
-                        width: double.infinity,
-                        child: GridView.count(
-                          physics: NeverScrollableScrollPhysics(), // Disable grid scrolling
-                          crossAxisCount: 2,
-                          children:  [
-                            CustomButton(icon: Icons.shopping_cart, text: 'My Orders',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 2,)));
-                            }),
-                            CustomButton(icon: Icons.analytics, text: 'Analytics',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(i: 1)));}),
-                            CustomButton(icon: Icons.edit, text: 'My Inventory',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> InventoryPage()));}),
-                            CustomButton(icon: Icons.person, text: 'Edit Profile',onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>ExtraInfo()));},),
-                          ],
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Search',
+                            hintStyle: TextStyle(color: Colors.grey[600],
+                              fontFamily: 'Raleway',), // Color of the hint text
+                            border: InputBorder.none, // Hide the default border
+                          ),
                         ),
                       ),
                     ],
                   ),
+                ),
+                SizedBox(height: 30,),
+                Container(
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderPage()));
+                    },
+                    child: Card(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(8.0,8,8,0),
+                            child: Image.asset(
+                              'assets/images/orders.png',
+                              height: 75,
+                              width: 75,
+                            ),
+                          ),
+                          ListTile(
+                            title: Center(child: Text('Your Orders', style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold),)),
+                          ),
+                        ],
+                      ),
+                      surfaceTintColor: Colors.white,
+                      color: Colors.white,
+                    ),
+                  ),
+                  height: 190,
+                  width: MediaQuery.of(context).size.width-50,
+                ),
+                const SizedBox(height: 40,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> InventoryPage()));
+                        },
+                        child: Card(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            // mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8.0,14,8,0),
+                                child: Image.asset(
+                                  'assets/images/inventory.png',
+                                  height: 45,
+                                  width: 45,
+                                ),
+                              ),
+                              ListTile(
+                                title: Center(child: Text('Inventory', style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold),)),
+                              ),
+                            ],
+                          ),
+                          surfaceTintColor: Colors.white,
+                          color: Colors.white,
+                        ),
+                      ),
+                      height: 150,
+                      width: MediaQuery.of(context).size.width/2-40,
+                    ),
+                    SizedBox(
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> AnalyticsPage()));
+                        },
+                        child: Card(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            // mainAxisSize: MainAxisSize.min,
+                            children:[
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8.0,14,8,0),
+                                child: Image.asset(
+                                  'assets/images/ana.png',
+                                  height: 45,
+                                  width: 45,
+                                ),
+                              ),
+                              ListTile(
+                                title: Center(child: Text('Analytics', style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold),)),
+                              ),
+                            ],
+                          ),
+                          surfaceTintColor: Colors.white,
+                          color: Colors.white,
+                        ),
+                      ),
+                      height: 150,
+                      width: MediaQuery.of(context).size.width/2-40,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20,),
+
               ],
             ),
+              // Positioned(
+              //   bottom:40 ,
+              //     left: 0,
+              //     right: 0,
+              //     child: Center(
+              //
+              //     child: ClipRRect(
+              //       borderRadius: BorderRadius.only(topRight: Radius.circular(70), topLeft: Radius.circular(70)),
+              //       child: Container(
+              //         color: Color.fromRGBO(44, 48, 162, 1.0),
+              //         child: Padding(
+              //           padding: const EdgeInsets.fromLTRB(16.0,8,16,8),
+              //           child: Icon(Icons.add, size: 60, color: Colors.white,),
+              //         )
+              //       ),
+              //     ),
+              //   ),
+              // ),
+          ]
           ),
         ),
-      ),
+      )
 
     );
-  }
-}
-
-class InfoPage {
-}
-
-
-class CustomButton extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final VoidCallback onTap;
-
-  const CustomButton({
-    Key? key,
-    required this.icon,
-    required this.text,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(8.0), // Add padding to create space between buttons
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, // Change to MainAxisAlignment.start
-          children: [
-            Icon(icon, size: 60.0), // Adjust icon size as needed
-            SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
-            Text(text, style: TextStyle(fontSize: 15),),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CrossPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..color = Colors.grey//Color.fromRGBO(25, 118, 210, 1)
-    ..strokeWidth = 1.0
-      ..strokeCap = StrokeCap.square;
-
-    // Draw horizontal line
-    canvas.drawLine(Offset(30, size.height / 2), Offset(size.width-30, size.height / 2), paint);
-
-    // Draw vertical line
-    canvas.drawLine(Offset(size.width / 2, 10), Offset(size.width / 2, size.height-10), paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
   }
 }
