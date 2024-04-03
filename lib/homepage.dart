@@ -26,11 +26,11 @@ class _HomePage extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
-    profilepage(),
-    const AnalyticsPage(),
     const OrderPage(),
+    profilepage(),
     const AccountPage(),
-    
+
+
   ];
 
   void _onItemTapped(int index) {
@@ -42,42 +42,54 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: _pages[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        iconSize: 24,
-        onTap: _onItemTapped,
-        currentIndex: selectedIndex,
-        backgroundColor: Colors.white,
-        selectedItemColor: const Color.fromRGBO(25, 118, 210, 1),
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: true,
-        selectedIconTheme:const  IconThemeData(
-          size: 40,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+      ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            iconSize: 24,
+            onTap: _onItemTapped,
+            currentIndex: selectedIndex,
+            backgroundColor: Colors.white,
+            selectedItemColor: const Color.fromRGBO(25, 118, 210, 1),
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: true,
+            showUnselectedLabels: false,
+            unselectedIconTheme: IconThemeData(
+              size: 30
+            ),
+            selectedIconTheme:const  IconThemeData(
+              size: 40,
+            ),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart),
+                label: 'Orders',
+              ),
+
+              BottomNavigationBarItem(
+                icon: Center(child: Icon(Icons.home)),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Account',
+              ),
+
+            ],
+          ),
         ),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Center(child: Icon(Icons.home)),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.analytics_rounded),
-            label: 'Analytics',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Orders',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Account',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
       ),
     );
   }

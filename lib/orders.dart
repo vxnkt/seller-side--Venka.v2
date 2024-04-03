@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'package:seller_side_uo/profilepage.dart';
 import 'analyticspage.dart';
 import 'order_details.dart';
@@ -167,7 +168,7 @@ class _OrderPageState extends State<OrderPage> {
                     overflow: TextOverflow.visible,
                     style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                 ),
@@ -176,7 +177,7 @@ class _OrderPageState extends State<OrderPage> {
                   '   ${order['quantity']}\n   ${order['quantity']}\n   ${order['quantity']}',
                   style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
 
                 ),

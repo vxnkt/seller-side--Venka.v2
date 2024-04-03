@@ -12,9 +12,12 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.white,
       appBar: AppBar(
         surfaceTintColor: Colors.white,
-        title: const Text('Profile'),
+        backgroundColor: Colors.white,
+
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -75,7 +78,7 @@ class _AccountPageState extends State<AccountPage> {
               const SizedBox(
                 height: 25,
               ),
-              
+
               Padding(
                 padding: const EdgeInsets.fromLTRB(8.0,0,8,0),
                 child: Column(
@@ -92,93 +95,95 @@ class _AccountPageState extends State<AccountPage> {
                         print('Personal Data tapped');
                       },
                     ),
-                  
-              
-              const Padding(
+
+
+
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.history),
-                title: const Text('Medical History'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('Medical History tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.history),
+                      title: const Text('Medical History'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('Medical History tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.list),
-                title: const Text('Order History'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('Order History tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.list),
+                      title: const Text('Order History'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('Order History tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text('Settings'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('Settings tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: const Text('Settings'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('Settings tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.question_answer),
-                title: const Text('FAQ'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('FAQ tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.question_answer),
+                      title: const Text('FAQ'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('FAQ tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.group),
-                title: const Text('Community'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('Community tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.group),
+                      title: const Text('Community'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('Community tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.vpn_key),
-                title: const Text('License'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('License tapped');
-                },
-              ),
-              const Padding(
+                    ListTile(
+                      leading: const Icon(Icons.vpn_key),
+                      title: const Text('License'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('License tapped');
+                      },
+                    ),
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(15,0,15,0),
                       child: Divider(),
                     ),
-              ListTile(
-                leading: const Icon(Icons.help),
-                title: const Text('Feel Free To ask. We are Ready to Help'),
-                onTap: () {
-                  // Handle your onTap here.
-                  print('Help tapped');
-                },
-              ),
-              ],
+                    ListTile(
+                      leading: const Icon(Icons.help),
+                      title: const Text('Feel Free To ask. We are Ready to Help'),
+                      onTap: () {
+                        // Handle your onTap here.
+                        print('Help tapped');
+                      },
+                    ),
+                  ],
+
                 ),
               ),
             ],

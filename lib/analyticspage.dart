@@ -36,7 +36,9 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage(i: 0)),
+
+                  MaterialPageRoute(builder: (context) => HomePage(i: 1)),
+
                 );
               },
               icon: const Icon(
@@ -86,21 +88,88 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               ),
             ),
             const SizedBox(height: 20,),
-            Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: (){},
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 200,
-                          child: Card(
-                              color: const Color.fromRGBO(25, 118, 210, 1),
-                              elevation: 8,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                padding: const EdgeInsets.all(16.0),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: (){},
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 175,
+                            child: Card(
+                                color: Color.fromRGBO(25, 118, 210, 1),
+                                elevation: 8,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  padding: const EdgeInsets.all(16.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20)),
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
+                                        children: [
+                                          Icon(Icons.auto_graph_sharp, size: 60.0, color: Colors.white,), // Adjust icon size as needed
+                                          SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
+                                          Text("Revenue", style: TextStyle(fontSize: 20, color: Colors.white)),
+                                        ],
+                                      ),
+                                    ),
+                                )),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            //   Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => AnalyticsPage()),
+                            // );
+                            },
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 175,
+                            child: Card(
+                              color: Color.fromRGBO(12, 93, 171, 1.0),
+                                elevation: 8,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
+                                      children: [
+                                        Icon(Icons.work_history, size: 60.0, color: Colors.white,), // Adjust icon size as needed
+                                        SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
+                                        Text("Order History", style: TextStyle(fontSize: 20, color: Colors.white),),
+                                      ],
+                                 ),
+                                ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => InventoryPage()),
+                            );
+                          },
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 175,
+                            child: Card(
+                                color: Color.fromRGBO(12, 65, 119, 1.0),
+                                elevation: 8,
+                                child: Container(
+                                  // width: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  padding: const EdgeInsets.all(16.0),
+
                                   child: Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20)),
@@ -108,81 +177,21 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                                     child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
                                       children: [
-                                        Icon(Icons.auto_graph_sharp, size: 60.0, color: Colors.white,), // Adjust icon size as needed
+                                        Icon(Icons.supervised_user_circle, size: 60.0, color: Colors.white
+                                          ,), // Adjust icon size as needed
                                         SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
-                                        Text("Revenue", style: TextStyle(fontSize: 20, color: Colors.white)),
+                                        Text("User Metrics", style: TextStyle(fontSize: 20, color: Colors.white),),
                                       ],
                                     ),
                                   ),
-                              )),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          //   Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => AnalyticsPage()),
-                          // );
-                          },
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 200,
-                          child: Card(
-                            color: const Color.fromRGBO(12, 93, 171, 1.0),
-                              elevation: 8,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                padding: const EdgeInsets.all(16.0),
-                                child: const Column(
-                                    mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
-                                    children: [
-                                      Icon(Icons.work_history, size: 60.0, color: Colors.white,), // Adjust icon size as needed
-                                      SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
-                                      Text("Order History", style: TextStyle(fontSize: 20, color: Colors.white),),
-                                    ],
-                               ),
-                              ),
+
+                                )),
                           ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InventoryPage()),
-                          );
-                        },
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 200,
-                          child: Card(
-                              color: const Color.fromRGBO(12, 65, 119, 1.0),
-                              elevation: 8,
-                              child: Container(
-                                // width: 100,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                padding: const EdgeInsets.all(16.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: const Column(
-                                    mainAxisAlignment: MainAxisAlignment.center, // Change to MainAxisAlignment.start
-                                    children: [
-                                      Icon(Icons.supervised_user_circle, size: 60.0, color: Colors.white
-                                        ,), // Adjust icon size as needed
-                                      SizedBox(height: 4.0), // Adjust the vertical spacing between the icon and text
-                                      Text("User Metrics", style: TextStyle(fontSize: 20, color: Colors.white),),
-                                    ],
-                                  ),
-                                ),
-                              )),
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+            ),
+
                   SizedBox(
                     width: MediaQuery.of(context).size.width*0.48,
                     height: 25,
