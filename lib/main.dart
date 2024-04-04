@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(canvasColor:Colors.white,splashColor: Colors.transparent, highlightColor: Colors.transparent, hoverColor: Colors.transparent),
+      theme: ThemeData(canvasColor:Colors.white,fontFamily:'Raleway',splashColor: Colors.transparent, highlightColor: Colors.transparent, hoverColor: Colors.transparent),
       home: SplashScreen(),
       );
   }

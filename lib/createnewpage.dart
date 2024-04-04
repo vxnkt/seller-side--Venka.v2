@@ -3,7 +3,9 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seller_side_uo/homepage.dart';
 import 'package:seller_side_uo/inventorypage.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -43,20 +45,26 @@ class _CreateNewPageState extends State<CreateNewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-          surfaceTintColor: Colors.white,
+          surfaceTintColor: Colors.transparent,
           centerTitle: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[100],
           title: const Text(
             "Dronaid",
             style: TextStyle(
               fontWeight: FontWeight.bold,
+              fontFamily: 'Raleway'
             ),
           ),
           actions: [
             IconButton(
                 onPressed: () {
-                  setState(() {});
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomePage(i: 0)),
+                  );
                 },
                 icon: const Icon(Icons.shopping_cart))
           ],
@@ -77,9 +85,12 @@ class _CreateNewPageState extends State<CreateNewPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Create New",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16.0,0,0,0),
+                child: const Text(
+                  "Create New",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Raleway'),
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -87,115 +98,114 @@ class _CreateNewPageState extends State<CreateNewPage> {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Card(
-                  color: const Color.fromRGBO(216, 240, 253, 1),
+                  color:Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  elevation: 8,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            children: [
-                              TextFormField(
-                                controller: _nameController,
-                                decoration:
-                                    const InputDecoration(labelText: 'Product Name'),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter the product name';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              TextFormField(
-                                controller: _priceController,
-                                decoration: const InputDecoration(labelText: 'Price'),
-                                keyboardType: TextInputType.number,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter the price';
-                                  }
-                                  // Add additional validation logic if needed
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              TextFormField(
-                                controller: _stockController,
-                                decoration: const InputDecoration(labelText: 'Stock'),
-                                keyboardType: TextInputType.number,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter the stock';
-                                  }
-                                  // Add additional validation logic if needed
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              // Add an ImagePicker or Image selection widget for the product photo
-                              // Example: ImagePickerWidget(),
-                              ElevatedButton(
-                                onPressed: _pickImage,
-                                child: const Text('Pick Image'),
-                              ),
-                              const SizedBox(height: 16.0), // Add some space
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            controller: _nameController,
+                            decoration:
+                                const InputDecoration(labelText: 'Product Name',
+                                    suffixStyle: TextStyle(fontFamily: 'Raleway')
+                                ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter the product name';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: _priceController,
+                            decoration: const InputDecoration(labelText: 'Price',suffixStyle: TextStyle(fontFamily: 'Raleway')),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter the price';
+                              }
+                              // Add additional validation logic if needed
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: _stockController,
+                            decoration: const InputDecoration(labelText: 'Stock',suffixStyle: TextStyle(fontFamily: 'Raleway')),
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter the stock';
+                              }
+                              // Add additional validation logic if needed
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          // Add an ImagePicker or Image selection widget for the product photo
+                          // Example: ImagePickerWidget(),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              surfaceTintColor: Colors.black
+                            ),
+                            onPressed: _pickImage,
+                            child: const Text('Pick Image',style: TextStyle(fontFamily: 'Raleway', color: Colors.black)),
+                          ),
 
-                              // Selected Image Preview
-                                                            _imagePaths.isNotEmpty
-                                  ? SizedBox(
-                                      height: 150.0,
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: _imagePaths.length,
-                                        itemBuilder: (context, index) {
-                                          return LongPressDraggable(
-                                            feedback: Image.file(
+                          // Selected Image Preview
+                                                        _imagePaths.isNotEmpty
+                              ? SizedBox(
+                                  height: 150.0,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: _imagePaths.length,
+                                    itemBuilder: (context, index) {
+                                      return LongPressDraggable(
+                                        feedback: Image.file(
+                                          File(_imagePaths[index]),
+                                          height: 100.0,
+                                          width: 100.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            Image.file(
                                               File(_imagePaths[index]),
                                               height: 100.0,
                                               width: 100.0,
                                               fit: BoxFit.cover,
                                             ),
-                                            child: Column(
-                                              children: [
-                                                Image.file(
-                                                  File(_imagePaths[index]),
-                                                  height: 100.0,
-                                                  width: 100.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                                IconButton(
-                                                  icon: const Icon(Icons.delete),
-                                                  onPressed: () =>
-                                                      _removeImage(index),
-                                                ),
-                                              ],
+                                            IconButton(
+                                              icon: const Icon(Icons.delete),
+                                              onPressed: () =>
+                                                  _removeImage(index),
                                             ),
-                                            onDragStarted: () =>
-                                                _removeImage(index),
-                                          );
-                                        },
-                                      ),
-                                    )
-                                  : Container(),
+                                          ],
+                                        ),
+                                        onDragStarted: () =>
+                                            _removeImage(index),
+                                      );
+                                    },
+                                  ),
+                                )
+                              : Container(),
 
 
-                              // Centered Submit Button with custom width and styling
-                              Container(
-                                width: double.infinity, // Full width
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 16.0), // Adjust margin as needed
-                              )
-                            ],
-                          ),
-                        ),
+                          // Centered Submit Button with custom width and styling
+                          Container(
+                            width: double.infinity, // Full width
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 16.0), // Adjust margin as needed
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -211,7 +221,8 @@ class _CreateNewPageState extends State<CreateNewPage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                        const Color.fromRGBO(10, 106, 157, 1), // Background color
+                        // const Color.fromRGBO(10, 106, 157, 1), // Background color
+                    Colors.black,
                     foregroundColor: Colors.white, // Text color
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50.0,
@@ -224,7 +235,7 @@ class _CreateNewPageState extends State<CreateNewPage> {
                   child: const Text(
                     'Submit',
                     style:
-                        TextStyle(fontSize: 18.0), // Adjust font size as needed
+                        TextStyle(fontSize: 18.0, fontFamily: 'Raleway'), // Adjust font size as needed
                   ),
                 ),
               ),
