@@ -1,8 +1,6 @@
 // ignore_for_file: camel_case_types,
 
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
@@ -40,7 +38,7 @@ class _profilepageState extends State<profilepage> {
              Padding(
                padding: const EdgeInsets.all(8.0),
                child: Container(
-               decoration: BoxDecoration(
+               decoration: const BoxDecoration(
                  image: DecorationImage(
                    image: AssetImage('assets/images/logo_neww.png'),
                  )
@@ -138,8 +136,8 @@ class _profilepageState extends State<profilepage> {
                     )
                   ]
                 ),
-                SizedBox(height: 20,),
-                Column(
+                const SizedBox(height: 20,),
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Row(
@@ -182,13 +180,17 @@ class _profilepageState extends State<profilepage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30,),
-                Container(
+                const SizedBox(height: 30,),
+                SizedBox(
+                  height: 190,
+                  width: MediaQuery.of(context).size.width-50,
                   child: GestureDetector(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderPage()));
                     },
                     child: Card(
+                      surfaceTintColor: Colors.white,
+                      color: Colors.white.withOpacity(1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         // mainAxisSize: MainAxisSize.min,
@@ -201,28 +203,28 @@ class _profilepageState extends State<profilepage> {
                               width: 75,
                             ),
                           ),
-                          ListTile(
+                          const ListTile(
                             title: Center(child: Text('Your Orders', style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold),)),
                           ),
                         ],
                       ),
-                      surfaceTintColor: Colors.white,
-                      color: Colors.white,
                     ),
                   ),
-                  height: 190,
-                  width: MediaQuery.of(context).size.width-50,
                 ),
                 const SizedBox(height: 40,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
+                      height: 150,
+                      width: MediaQuery.of(context).size.width/2-40,
                       child: GestureDetector(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> InventoryPage()));
                         },
                         child: Card(
+                          surfaceTintColor: Colors.white,
+                          color: Colors.white,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             // mainAxisSize: MainAxisSize.min,
@@ -240,20 +242,19 @@ class _profilepageState extends State<profilepage> {
                               ),
                             ],
                           ),
-                          surfaceTintColor: Colors.white,
-                          color: Colors.white,
                         ),
                       ),
-
-                      height: 150,
-                      width: MediaQuery.of(context).size.width/2-40,
                     ),
                     SizedBox(
+                      height: 150,
+                      width: MediaQuery.of(context).size.width/2-40,
                       child: GestureDetector(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> AnalyticsPage()));
                         },
                         child: Card(
+                          surfaceTintColor: Colors.white,
+                          color: Colors.white,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             // mainAxisSize: MainAxisSize.min,
@@ -266,18 +267,13 @@ class _profilepageState extends State<profilepage> {
                                   width: 45,
                                 ),
                               ),
-                              ListTile(
+                              const ListTile(
                                 title: Center(child: Text('Analytics', style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold),)),
                               ),
                             ],
                           ),
-                          surfaceTintColor: Colors.white,
-                          color: Colors.white,
-
                         ),
                       ),
-                      height: 150,
-                      width: MediaQuery.of(context).size.width/2-40,
                     ),
                   ],
                 ),

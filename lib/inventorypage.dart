@@ -19,11 +19,11 @@ class _InventoryPageState extends State<InventoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-          surfaceTintColor: Colors.white,
+          surfaceTintColor: Colors.grey[100],
           centerTitle: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[100],
           
           title: const Text(
             "Dronaid",
@@ -80,7 +80,8 @@ class _InventoryPageState extends State<InventoryPage> {
                       height: 60,
                       child: Card(
                           color: const Color.fromARGB(255, 239, 241, 243),
-                          elevation: 8,
+                        // color: Colors.white,
+                          // elevation: 8,
                           child: Container(
                             // width: 100,
                             decoration: BoxDecoration(
@@ -110,8 +111,10 @@ class _InventoryPageState extends State<InventoryPage> {
                       width: 180,
                       height: 60,
                       child: Card(
-                          color: const Color.fromRGBO(216, 240, 253, 1),
-                          elevation: 8,
+                        //color: Colors.white,
+                        //surfaceTintColor: Colors.white,
+                          color: const Color.fromARGB(255, 239, 241, 243),
+                          // elevation: 8,
                           child: Container(
                             // width: 100,
                             decoration: BoxDecoration(
@@ -155,8 +158,11 @@ class _InventoryPageState extends State<InventoryPage> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
-                          elevation: 5,
+                          color: Colors.white,
+                          surfaceTintColor: Colors.white,
                           child: Container(
+                            decoration: BoxDecoration(
+                            ),
                             // height: 120,
                             width: 150, // Adjust the width based on your design
                             padding: const EdgeInsets.all(8.0),

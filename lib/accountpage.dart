@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'homepage.dart';
+
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
 
@@ -15,6 +17,17 @@ class _AccountPageState extends State<AccountPage> {
 
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => HomePage(i: 1)),
+    );
+    },
+        icon: const Icon(
+          Icons.arrow_back,
+        )),
+        automaticallyImplyLeading: false,
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
 
