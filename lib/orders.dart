@@ -1,12 +1,20 @@
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:seller_side_uo/firebase_options.dart';
 import 'package:seller_side_uo/homepage.dart';
 import 'package:seller_side_uo/profilepage.dart';
 import 'analyticspage.dart';
 import 'order_details.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -31,6 +39,7 @@ class OrderPage extends StatefulWidget {
 }
 
 class _OrderPageState extends State<OrderPage> {
+  Query dbRef = FirebaseDatabase.instance.ref().child('USERS');
   final List<Map<String, dynamic>> activeOrders = [
     {'name': 'Product A', 'quantity': 3},
     {'name': 'Product B', 'quantity': 2},
@@ -46,7 +55,7 @@ class _OrderPageState extends State<OrderPage> {
     {'name': 'Product W', 'quantity': 4},
     {'name': 'Product V', 'quantity': 5},
   ];
-  String index1="", index2="";
+  String index1 = "", index2 = "";
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +87,10 @@ class _OrderPageState extends State<OrderPage> {
                   const TabBar(
                     overlayColor: MaterialStatePropertyAll(Colors.transparent),
                     labelStyle: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromRGBO(25, 118, 210, 1),
-                      fontWeight: FontWeight.bold
-                    ),
-                    indicatorColor:     Color.fromRGBO(25, 118, 210, 1),
+                        fontSize: 16,
+                        color: Color.fromRGBO(25, 118, 210, 1),
+                        fontWeight: FontWeight.bold),
+                    indicatorColor: Color.fromRGBO(25, 118, 210, 1),
                     tabs: [
                       Tab(
                         text: 'Active Orders',
@@ -100,20 +108,57 @@ class _OrderPageState extends State<OrderPage> {
                         ListView.builder(
                           itemCount: activeOrders.length,
                           itemBuilder: (context, index) {
-                           // index1=activeOrders.length;
+                            // index1=activeOrders.length;
                             return buildOrderListItem(
                                 activeOrders[index], index);
                           },
                         ),
                         // Tab 2: Pending Orders
-                        ListView.builder(
-                          itemCount: pendingOrders.length,
-                          itemBuilder: (context, index) {
-                            //index2=pendingOrders.length;
-                            return buildOrderListItem(
-                                pendingOrders[index], index);
+                        FirebaseAnimatedList(
+                          query: dbRef,
+                          itemBuilder: (context, snapshot, animation, index) {
+                            if (snapshot.hasChild('Orders')) {
+                              // Check if the user has orders
+                              final nameref = snapshot
+                                  .child('Profile Info/Name')
+                                  .value
+                                  .toString();
+                              return Container(
+                                padding: EdgeInsets.all(5),
+                                child: ListTile(
+                                  tileColor: Color.fromRGBO(25, 118, 210, 1),
+                                  trailing: Icon(
+                                    Icons.arrow_right,
+                                    color: Colors.white,
+                                  ),
+                                  textColor: Colors.white,
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const OrderDetails(),
+                                      ),
+                                    );
+                                  },
+                                  title: Text(nameref),
+                                ),
+                              );
+                            } else {
+                              // User has no orders, display nothing
+                              return Container();
+                            }
                           },
                         ),
+
+                        // ListView.builder(
+                        //   itemCount: pendingOrders.length,
+                        //   itemBuilder: (context, index) {
+                        //     //index2=pendingOrders.length;
+                        //     return buildOrderListItem(
+                        //         pendingOrders[index], index);
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -124,7 +169,6 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
     );
-
   }
 
   Widget buildOrderListItem(Map<String, dynamic> order, int index) {
@@ -132,61 +176,61 @@ class _OrderPageState extends State<OrderPage> {
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       child: GestureDetector(
         onTap: () {
-
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const OrderDetails()));
           print('${index + 1} is tapped');
         },
         child: Card(
-          color: Color.fromRGBO(25, 118-index*10, 210-index*20, 1),
+          color: Color.fromRGBO(25, 118 - index * 10, 210 - index * 20, 1),
           elevation: 20,
           child: ListTile(
-            title:Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Order ${index + 1}',
-                  style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                const Icon(Icons.arrow_forward_ios,
-                color: Colors.white,)
-              ],
-            ),
-
-            subtitle: Column(
-              children:[
-                const SizedBox(height: 5,),
-                Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    '${order['name']}\n${order['name']}\n${order['name']}',
-                    overflow: TextOverflow.visible,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Order ${index + 1}',
                     style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+              subtitle: Column(children: [
+                const SizedBox(
+                  height: 5,
                 ),
-                const SizedBox(width: 5),
-                Text(
-                  '   ${order['quantity']}\n   ${order['quantity']}\n   ${order['quantity']}',
-                  style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        '${order['name']}\n${order['name']}\n${order['name']}',
+                        overflow: TextOverflow.visible,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      '   ${order['quantity']}\n   ${order['quantity']}\n   ${order['quantity']}',
+                      style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-                const SizedBox(height: 5,)
-          ]
-          )
-          ),
+                const SizedBox(
+                  height: 5,
+                )
+              ])),
         ),
       ),
     );
